@@ -10,6 +10,7 @@ import App from './app';
 // local files
 import i18next from './i18next/config';
 import store from './store/store';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
