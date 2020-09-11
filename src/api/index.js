@@ -5,7 +5,7 @@ const baseURLs = {
     production: ''
 }
 
-const fetchWrapper = (url, auth = true, method = "GET", body) => {
+const customFetch = (url, auth = true, method = "GET", body) => {
     const JWT_TOKEN = localStorage.getItem('JWT_TOKEN');
     const headers = {
         'Content-Type': 'application/json',
@@ -38,13 +38,11 @@ const fetchWrapper = (url, auth = true, method = "GET", body) => {
 
 };
 
-const getCustomFetch = () => ({
-    post: (url, body, auth) => fetchWrapper(url, auth, "POST", body),
-    get: (url) => fetchWrapper(url)
-});
-
 // using fetcher
 // fetcher.post(url, body)
 // fetcher.get(url)
 // can be customized for query params and delete, put methods.
-export const fetcher = getCustomFetch();
+export const fetcher = {
+    post: (url, body, auth) => customFetch(url, auth, "POST", body),
+    get: (url) => customFetch(url)
+};
