@@ -13,11 +13,11 @@ import store from './store/store';
 
 ReactDOM.render(
   <React.StrictMode>
-      <I18nextProvider i18n={i18next}>
-          <Provider store={store}>
-              <App />
-          </Provider>
-      </I18nextProvider>
+    <I18nextProvider i18n={i18next}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </I18nextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

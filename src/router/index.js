@@ -5,11 +5,11 @@ import React from 'react';
 import Homepage from '../pages/home_page';
 
 const routes = [
-    {
-        path: '/',
-        component: props => <Homepage {...props} />,
-        exact: true,
-    }
-]
+  {
+    path: '/',
+    component: (props) => <Homepage {...props} />,
+    exact: true
+  }
+];
 
 export default routes;
