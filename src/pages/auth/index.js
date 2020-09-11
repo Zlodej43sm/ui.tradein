@@ -1,12 +1,13 @@
 // node modules
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 // material components
 import TextField from '@material-ui/core/TextField';
 import LockIcon from '@material-ui/icons/LockOutlined';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
+import LinkMui from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
 
 // local files
@@ -32,7 +33,7 @@ const Auth = ({
       </div>
       <div className={title}>{t('auth:sign_in_title_label')}</div>
       <TextField
-        placeholder={t('auth:email_label')}
+        placeholder={t('common:email_label')}
         classes={{ root: textField }}
         variant="outlined"
       />
@@ -41,9 +42,13 @@ const Auth = ({
         classes={{ root: textField }}
         variant="outlined"
       />
-      <Link classes={{ root: forgottenPass }}>
+      <LinkMui
+        to="/recover_password"
+        component={Link}
+        classes={{ root: forgottenPass }}
+      >
         {t('auth:forgotten_password_label')}
-      </Link>
+      </LinkMui>
       <Button
         classes={{ root: signInButton }}
         variant="contained"
