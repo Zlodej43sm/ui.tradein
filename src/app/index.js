@@ -1,10 +1,17 @@
 // node modules
 import React from 'react';
-import { useTranslation } from "react-i18next";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const App = () => {
-    const { t } = useTranslation();
-    return <div>{t('common:test_value')}</div>;
-}
+// local files
+import routes from "../router";
+
+const App = () =>
+    <BrowserRouter>
+        <Switch>
+            {routes.map((props, i) =>
+                <Route {...props} key={i} />
+            )}
+        </Switch>
+    </BrowserRouter>
 
 export default App;
