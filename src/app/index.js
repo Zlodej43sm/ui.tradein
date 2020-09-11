@@ -2,14 +2,22 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+// local components
+import RouteComponent from './route_component';
+
 // local files
-import routes from '../router';
+import routes, { authRoute } from '../router';
 
 const App = () => (
   <BrowserRouter>
     <Switch>
-      {routes.map((props, i) => (
-        <Route {...props} key={i} />
+      <Route {...authRoute} />
+      {routes.map(({ exact, component, path }, i) => (
+        <Route
+          render={(props) => <RouteComponent {...{ component, ...props }} />}
+          {...{ exact, path }}
+          key={i}
+        />
       ))}
     </Switch>
   </BrowserRouter>
