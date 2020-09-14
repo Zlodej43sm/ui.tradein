@@ -12,8 +12,8 @@ i18next.use(initReactI18next).init({
   resources: { ru, en },
   lng: 'ru',
   fallbackLng: 'ru',
-  keySeparator: '.',
-  nsSeparator: ':',
+  keySeparator: false,
+  nsSeparator: false,
   interpolation: { escapeValue: false },
   fallbackNS: []
 });
