@@ -18,8 +18,6 @@ import styles from './styles';
 const Auth = ({
   classes: {
     wrapper,
-    iconWrapper,
-    icon,
     textField,
     title,
     signInButton,
@@ -31,14 +29,14 @@ const Auth = ({
   return (
     <div className={wrapper}>
       <LockIcon />
-      <div className={title}>{t('auth:sign_in_title_label')}</div>
+      <div className={title}>{t('Authorization')}</div>
       <TextField
-        placeholder={t('common:Email')}
+        placeholder={t('Email')}
         classes={{ root: textField }}
         variant="outlined"
       />
       <TextField
-        placeholder={t('common:Password')}
+        placeholder={t('Password')}
         classes={{ root: textField }}
         variant="outlined"
       />
@@ -47,14 +45,14 @@ const Auth = ({
         component={Link}
         classes={{ root: forgottenPass }}
       >
-        {t('auth:forgotten_password_label')}
+        {t('Forgot your password ?')}
       </LinkMui>
       <Button
         classes={{ root: signInButton }}
         variant="contained"
         color="primary"
       >
-        {t('auth:sign_in_label')}
+        {t('Sign in')}
       </Button>
     </div>
   );
