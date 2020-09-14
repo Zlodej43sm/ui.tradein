@@ -20,14 +20,14 @@ const ConfirmPassword = ({
   return (
     <div className={wrapper}>
       <LockIcon />
-      <div className={title}>{t('confirm_password:Password confirmation')}</div>
+      <div className={title}>{t('Password confirmation')}</div>
       <TextField
-        placeholder={t('common:Password')}
+        placeholder={t('Password')}
         classes={{ root: textField }}
         variant="outlined"
       />
       <TextField
-        placeholder={t('confirm_password:Repeat password')}
+        placeholder={t('Repeat password')}
         classes={{ root: textField }}
         variant="outlined"
       />
@@ -36,7 +36,7 @@ const ConfirmPassword = ({
         variant="contained"
         color="primary"
       >
-        {t('confirm_password:Confirm')}
+        {t('Confirm')}
       </Button>
     </div>
   );

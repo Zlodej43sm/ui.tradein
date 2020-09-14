@@ -21,10 +21,12 @@ const RecoverPassword = ({
         <RotateLeftOutlinedIcon className={icon} />
       </div>
       <div className={title}>
-        {t('recover_password:recover_password_title')}
+        {t(
+          'Forgot your password? Enter your email to receive a link to reset your password.'
+        )}
       </div>
       <TextField
-        placeholder={t('common:Email')}
+        placeholder={t('Email')}
         classes={{ root: textField }}
         variant="outlined"
       />
@@ -33,7 +35,7 @@ const RecoverPassword = ({
         variant="contained"
         color="primary"
       >
-        {t('recover_password:reset_password')}
+        {t('Reset password')}
       </Button>
     </div>
   );
