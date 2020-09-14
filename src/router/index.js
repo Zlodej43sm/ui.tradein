@@ -7,6 +7,7 @@ import Homepage from '../pages/home_page';
 // components without required authorization
 import Auth from '../pages/auth';
 import RecoverPassword from '../pages/recover_password';
+import ConfirmPassword from '../pages/confirm_password';
 
 export const authRoutes = [
   {
@@ -26,6 +27,10 @@ export const routes = [
     path: '/recover_password',
     component: (props) => <RecoverPassword {...props} />,
     exact: true
+  },
+  {
+    path: '/password_confirmation',
+    component: (props) => <ConfirmPassword {...props} />,
+    exact: true
   }
 ];
-

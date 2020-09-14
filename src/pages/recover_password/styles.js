@@ -34,4 +34,3 @@ export default (theme) => ({
     flexDirection: 'column'
   }
 });
-
