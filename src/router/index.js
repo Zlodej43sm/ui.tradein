@@ -1,15 +1,15 @@
 // node modules
 import React from 'react';
 
-// components with required authorization
+// private components (auth required)
 import Homepage from '../pages/home_page';
 
-// components without required authorization
+// public components (auth isn't required)
 import Auth from '../pages/auth';
 import RecoverPassword from '../pages/recover_password';
 import ConfirmPassword from '../pages/confirm_password';
 
-export const authRoutes = [
+export const privateRoutes = [
   {
     path: '/',
     component: (props) => <Homepage {...props} />,
@@ -17,7 +17,7 @@ export const authRoutes = [
   }
 ];
 
-export const routes = [
+export const publicRoutes = [
   {
     path: '/auth',
     component: (props) => <Auth {...props} />,

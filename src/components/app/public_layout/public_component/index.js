@@ -2,11 +2,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const RouteComponent = ({ component: Component, ...props }) =>
+const PublicComponent = ({ component: Component, ...props }) =>
   localStorage.getItem('JWT_TOKEN') ? (
     <Redirect to="/" />
   ) : (
     <Component {...props} />
   );
 
-export default RouteComponent;
+export default PublicComponent;
