@@ -16,13 +16,7 @@ import LockIcon from '../../common/components/lock_icon';
 import styles from './styles';
 
 const Auth = ({
-  classes: {
-    wrapper,
-    textField,
-    title,
-    signInButton,
-    forgottenPass
-  }
+  classes: { wrapper, textField, title, signInButton, forgottenPass }
 }) => {
   const { t } = useTranslation();
 
