@@ -10,11 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 // local files
 import i18next from '../../../i18next/config';
+import { languages } from '../../config';
 
-const languages = {
-  en: { value: 'en', displayValue: 'ENG' },
-  ru: { value: 'ru', displayValue: 'РУС' }
-};
 const { language: lng } = i18next;
 
 const LanguageBar = () => {
