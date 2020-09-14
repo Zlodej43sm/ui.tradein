@@ -6,13 +6,14 @@ import { initReactI18next } from 'react-i18next';
 import { getLanguage } from '../common/utils';
 import ru from './ru';
 import en from './en';
+import uk from './uk';
 
 const lng = getLanguage();
 
 // init options https://www.i18next.com/overview/configuration-options;
 i18next.use(initReactI18next).init({
   react: { wait: true },
-  resources: { ru, en },
+  resources: { ru, en, uk },
   lng,
   fallbackLng: lng,
   keySeparator: false,
