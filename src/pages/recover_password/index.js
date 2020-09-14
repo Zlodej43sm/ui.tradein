@@ -24,7 +24,7 @@ const RecoverPassword = ({
         {t('recover_password:recover_password_title')}
       </div>
       <TextField
-        placeholder={t('common:email_label')}
+        placeholder={t('common:Email')}
         classes={{ root: textField }}
         variant="outlined"
       />
