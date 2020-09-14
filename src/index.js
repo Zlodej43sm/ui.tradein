@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 
 // local components
-import App from './app';
+import App from './components/app';
 
 // local files
 import i18next from './i18next/config';

@@ -2,11 +2,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const AuthComponent = ({ component: Component, ...props }) =>
+const PrivateComponent = ({ component: Component, ...props }) =>
   localStorage.getItem('JWT_TOKEN') ? (
     <Component {...props} />
   ) : (
     <Redirect to="/auth" />
   );
 
-export default AuthComponent;
+export default PrivateComponent;
