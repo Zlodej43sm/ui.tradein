@@ -2,12 +2,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 // local files
-import { app } from './reducers';
 import { loader } from './reducers/loader';
+import { userInfo } from './reducers/userInfo';
 
 export default configureStore({
   reducer: {
-    app,
-    loader
+    loader,
+    userInfo
   }
 });

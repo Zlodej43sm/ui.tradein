@@ -1,8 +1,9 @@
 // node modules
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import isEmpty from 'lodash/isEmpty';
 
 // material components
 import TextField from '@material-ui/core/TextField';
@@ -14,6 +15,8 @@ import { withStyles } from '@material-ui/core/styles';
 import LockIcon from '../../common/components/lock_icon';
 
 // local files
+import { SET_USER_INFO, REMOVE_USER_INFO } from '../../store/types';
+import { history } from '../../router/history';
 import { logIn } from '../../api';
 import styles from './styles';
 
@@ -22,15 +25,20 @@ const Auth = ({
 }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const userInfo = useSelector(({ userInfo }) => userInfo);
   const [disabled, setDisabled] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const onChangeEmail = ({ target: { value } }) => setEmail(value);
   const onChangePassword = ({ target: { value } }) => setPassword(value);
-
+  const authUser = ({ data: { accessToken, ...payload } }) => {
+    localStorage.setItem('JWT_TOKEN', accessToken);
+    dispatch({ type: SET_USER_INFO, payload });
+    history.push('/');
+  };
   const signIn = () => {
     const options = {
-      successCb: () => setDisabled(false),
+      successCb: authUser,
       errorCb: () => setDisabled(false),
       loadingMsg: 'Authorization...',
       successMsg: 'Authorization successful!',
@@ -40,6 +48,10 @@ const Auth = ({
     setDisabled(true);
     dispatch(logIn(options));
   };
+
+  useEffect(() => {
+    if (!isEmpty(userInfo)) dispatch({ type: REMOVE_USER_INFO });
+  }, []);
 
   return (
     <div className={wrapper}>
@@ -52,6 +64,7 @@ const Auth = ({
         variant="outlined"
       />
       <TextField
+        type="password"
         onChange={onChangePassword}
         placeholder={t('Password')}
         classes={{ root: textField }}
