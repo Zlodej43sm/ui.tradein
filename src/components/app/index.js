@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // local components
 import PrivateLayout from './private_layout';
 import PublicLayout from './public_layout';
+import InfoBar from '../snackbar';
 
 // local files
 import { publicRoutes, privateRoutes } from '../../router';
@@ -22,6 +23,7 @@ const App = () => (
         <PublicLayout routes={publicRoutes} />
       </Route>
     </Switch>
+    <InfoBar />
   </BrowserRouter>
 );
 

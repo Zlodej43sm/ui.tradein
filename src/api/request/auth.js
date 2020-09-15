@@ -1,3 +1,5 @@
+import { request } from './';
+
 export const logOut = () => {
   const JWT = localStorage.getItem('JWT_TOKEN');
 
@@ -5,3 +7,5 @@ export const logOut = () => {
 
   window.location.pathname = '/auth';
 };
+
+export const logIn = request('/v1/auth/signin', 'post', false);
