@@ -20,7 +20,7 @@ const types = {
 const InfoBar = () => {
   const [messageInfo, setMessageInfo] = useState(null);
   const [open, setOpen] = useState(false);
-  const { active, message, type } = useSelector(({ loader }) => loader);
+  const { message, type } = useSelector(({ loader }) => loader);
   const dispatch = useDispatch();
   const placementOptions = { vertical: 'top', horizontal: 'center' };
   const { t } = useTranslation();
@@ -35,10 +35,8 @@ const InfoBar = () => {
       setOpen(true);
     }
 
-    if (isOpened || !active) {
-      setOpen(false);
-    }
-  }, [messageInfo, active, message, open, dispatch]);
+    if (isOpened) setOpen(false);
+  }, [messageInfo, message, open, dispatch]);
 
   const handleExited = () => setMessageInfo(null);
   const handleClose = () => setOpen(false);
