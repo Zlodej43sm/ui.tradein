@@ -11,7 +11,7 @@ const customFetch = (url, auth = true, method = 'GET', body) => {
   const headers = {
     'Content-Type': 'application/json',
     // set JWT to header if request needs auth header and user authorized
-    ...(auth && JWT_TOKEN ? { Authorization: `Bearer ${JWT_TOKEN}` } : {})
+    ...(auth && JWT_TOKEN ? { 'x-access-token': JWT_TOKEN } : {})
   };
 
   // redirect to auth page if authorization is required
@@ -35,7 +35,7 @@ const customFetch = (url, auth = true, method = 'GET', body) => {
 
       if (success) return { data };
 
-      if (status !== 401) return Promise.reject(data);
+      if (status !== 401 || status !== 403) return Promise.reject(data);
 
       logOut();
     });
