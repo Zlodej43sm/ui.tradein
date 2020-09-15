@@ -1,6 +1,6 @@
 // node modules
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import isEmpty from 'lodash/isEmpty';
@@ -16,7 +16,6 @@ import LockIcon from '../../common/components/lock_icon';
 
 // local files
 import { SET_USER_INFO, REMOVE_USER_INFO } from '../../store/types';
-import { history } from '../../router/history';
 import { logIn } from '../../api';
 import styles from './styles';
 
@@ -25,6 +24,7 @@ const Auth = ({
 }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const history = useHistory();
   const userInfo = useSelector(({ userInfo }) => userInfo);
   const [disabled, setDisabled] = useState(false);
   const [email, setEmail] = useState('');
