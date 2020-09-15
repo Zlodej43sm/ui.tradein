@@ -1,11 +1,9 @@
-export default () => ({
+export default (theme) => ({
   iconWrapper: {
     width: 50,
     height: 50,
     borderRadius: '50%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    ...theme.mixins.alignment.center,
     background: '#e10351',
     margin: '0 auto'
   },
