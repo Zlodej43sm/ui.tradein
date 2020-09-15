@@ -51,7 +51,7 @@ const Auth = ({
 
   useEffect(() => {
     if (!isEmpty(userInfo)) dispatch({ type: REMOVE_USER_INFO });
-  }, []);
+  }, [userInfo, dispatch]);
 
   return (
     <div className={wrapper}>

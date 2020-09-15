@@ -2,8 +2,7 @@ export default (theme) => ({
   wrapper: {
     width: 300,
     margin: theme.spacing(0, 'auto'),
-    display: 'flex',
-    flexDirection: 'column'
+    ...theme.mixins.alignment.column,
   },
   textField: {
     width: '100%',
