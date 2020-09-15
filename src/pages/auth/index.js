@@ -22,6 +22,7 @@ const Auth = ({
 }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const [disabled, setDisabled] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const onChangeEmail = ({ target: { value } }) => setEmail(value);
@@ -29,11 +30,14 @@ const Auth = ({
 
   const signIn = () => {
     const options = {
+      successCb: () => setDisabled(false),
+      errorCb: () => setDisabled(false),
       loadingMsg: 'Authorization...',
       successMsg: 'Authorization successful!',
       body: { username: email, password }
     };
 
+    setDisabled(true);
     dispatch(logIn(options));
   };
 
@@ -61,6 +65,7 @@ const Auth = ({
         {t('Forgot your password ?')}
       </LinkMui>
       <Button
+        disabled={disabled}
         onClick={signIn}
         classes={{ root: signInButton }}
         variant="contained"
