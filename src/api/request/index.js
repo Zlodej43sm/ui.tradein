@@ -31,6 +31,7 @@ export const request = (url, method, auth) => ({
         type: SET_LOADER,
         payload: { type: 'error', message: result.message }
       });
+
       errorCb(result, dispatch);
     });
 };
