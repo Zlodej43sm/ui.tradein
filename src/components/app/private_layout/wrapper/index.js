@@ -13,7 +13,7 @@ import styles from './styles';
 
 const Wrapper = ({ classes: { privatePage }, children }) => (
   <div className={privatePage}>
-    <Header />
+    <Header auth />
     <SideBar />
     {children}
   </div>

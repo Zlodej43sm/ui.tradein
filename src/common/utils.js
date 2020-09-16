@@ -8,3 +8,25 @@ export const getLanguage = () => {
 
   return preferableLang ? preferableLang.value : 'en';
 };
+
+export const setUserToLocalStorage = (data) => {
+  localStorage.setItem('user', JSON.stringify(data));
+};
+
+export const getJWT = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (!user) return null;
+
+  return user.accessToken;
+};
+
+export const getUserInfo = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (!user) return null;
+
+  const { accessToken, ...userInfo } = user;
+
+  return userInfo;
+};

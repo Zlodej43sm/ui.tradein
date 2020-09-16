@@ -6,8 +6,11 @@ import PublicWrapper from '../../components/app/public_layout/wrapper';
 import PrivateWrapper from '../../components/app/private_layout/wrapper';
 import Content from './content';
 
+// local files
+import { getJWT } from '../../common/utils';
+
 const NotFound = () => {
-  const isAuth = localStorage.getItem('JWT_TOKEN');
+  const isAuth = getJWT();
   return isAuth ? (
     <PrivateWrapper>
       <Content auth />
