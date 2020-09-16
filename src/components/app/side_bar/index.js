@@ -14,7 +14,7 @@ import PagesIcon from '@material-ui/icons/Pages';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
-import SettingsIcon from '@material-ui/icons/Settings';
+import PermDataSettingIcon from '@material-ui/icons/PermDataSetting';
 
 // local files
 import styles from './styles';
@@ -92,7 +92,7 @@ const SideBar = ({ classes: { list, activeLink } }) => {
         button
       >
         <ListItemIcon>
-          <SettingsIcon />
+          <PermDataSettingIcon />
         </ListItemIcon>
         <ListItemText primary={t('Configuration')} />
       </ListItem>
