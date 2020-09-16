@@ -1,5 +1,10 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
+const column = {
+  display: 'flex',
+  flexDirection: 'column'
+};
+
 export const theme = createMuiTheme({
   mixins: {
     alignment: {
@@ -8,9 +13,10 @@ export const theme = createMuiTheme({
         justifyContent: 'center',
         alignItems: 'center'
       },
-      column: {
-        display: 'flex',
-        flexDirection: 'column'
+      column,
+      columnCenter: {
+        ...column,
+        alignItems: 'center'
       },
       betweenCenter: {
         display: 'flex',

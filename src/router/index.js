@@ -9,6 +9,9 @@ import Auth from '../pages/auth';
 import RecoverPassword from '../pages/recover_password';
 import ConfirmPassword from '../pages/confirm_password';
 
+// other components
+import NotFound from '../pages/not_found';
+
 export const privateRoutes = [
   {
     path: '/',
@@ -34,3 +37,9 @@ export const publicRoutes = [
     exact: true
   }
 ];
+
+export const notFoundRoute = {
+  path: '/page_not_found',
+  component: (props) => <NotFound {...props} />,
+  exact: true
+};
