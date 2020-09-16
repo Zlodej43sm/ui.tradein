@@ -49,6 +49,7 @@ const UserInfo = ({ classes: { paper, infoWrapper, icon } }) => {
             <Paper>
               {items.map(({ text, icon: Icon, button }) => {
                 const props = button ? { onClick: logOut, button } : {};
+
                 return (
                   <ListItem key={getUniqId()} {...props}>
                     <ListItemIcon>
