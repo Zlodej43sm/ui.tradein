@@ -9,6 +9,7 @@ export default (theme) => ({
     position: 'fixed',
     top: 0,
     left: 0,
-    background: 'white'
+    background: 'white',
+    zIndex: 1
   }
 });
