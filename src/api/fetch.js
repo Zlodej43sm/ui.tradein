@@ -1,5 +1,6 @@
 import { logOut } from './';
 import { successStatusCodes } from '../common/constants';
+import { getJWT } from '../common/utils';
 
 const baseURLs = {
   development: 'http://localhost:8081',
@@ -7,7 +8,7 @@ const baseURLs = {
 };
 
 const customFetch = (url, auth = true, method = 'GET', body) => {
-  const JWT_TOKEN = localStorage.getItem('JWT_TOKEN');
+  const JWT_TOKEN = getJWT();
   const headers = {
     'Content-Type': 'application/json',
     // set JWT to header if request needs auth header and user authorized
@@ -35,9 +36,11 @@ const customFetch = (url, auth = true, method = 'GET', body) => {
 
       if (success) return { data };
 
-      if (status !== 401 || status !== 403) return Promise.reject(data);
+      if (status === 403) window.location.pathname = '/page_not_found';
 
-      logOut();
+      if (status === 401) logOut();
+
+      return Promise.reject(data);
     });
 };
 

@@ -7,14 +7,15 @@ import LanguageIcon from '@material-ui/icons/Language';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { withStyles } from '@material-ui/core/styles';
 
 // local files
 import i18next from '../../../i18next/config';
 import { languages } from '../../config';
+import styles from './styles';
 
-const { language: lng } = i18next;
-
-const LanguageBar = () => {
+const LanguageBar = ({ classes: { btnIcon } }) => {
+  const { language: lng } = i18next;
   const [anchor, setAnchor] = useState();
   const [language, setLanguage] = useState(languages[lng]);
   const handleOpen = ({ target }) => setAnchor(target);
@@ -31,7 +32,7 @@ const LanguageBar = () => {
   return (
     <div>
       <Button aria-controls="menu" aria-haspopup="true" onClick={handleOpen}>
-        <LanguageIcon color="primary" />
+        <LanguageIcon classes={{ root: btnIcon }} color="primary" />
         {displayValue}
       </Button>
       <Menu
@@ -51,4 +52,4 @@ const LanguageBar = () => {
   );
 };
 
-export default LanguageBar;
+export default withStyles(styles)(LanguageBar);

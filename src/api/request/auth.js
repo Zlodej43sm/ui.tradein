@@ -1,9 +1,10 @@
 import { request } from './';
+import { getJWT } from '../../common/utils';
 
 export const logOut = () => {
-  const JWT = localStorage.getItem('JWT_TOKEN');
+  const JWT = getJWT();
 
-  if (JWT) localStorage.removeItem('JWT_TOKEN');
+  if (JWT) localStorage.removeItem('user');
 
   window.location.pathname = '/auth';
 };

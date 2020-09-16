@@ -11,5 +11,11 @@ export default (theme) => ({
     left: 0,
     background: 'white',
     zIndex: 1
+  },
+  rightBar: {
+    ...theme.mixins.alignment.center
+  },
+  link: {
+    textDecoration: 'none'
   }
 });

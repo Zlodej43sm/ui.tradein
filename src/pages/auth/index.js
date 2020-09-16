@@ -16,6 +16,7 @@ import LockIcon from '../../common/components/lock_icon';
 
 // local files
 import { SET_USER_INFO, REMOVE_USER_INFO } from '../../store/types';
+import { setUserToLocalStorage } from '../../common/utils';
 import { logIn } from '../../api';
 import styles from './styles';
 
@@ -23,8 +24,8 @@ const Auth = ({
   classes: { wrapper, textField, title, signInButton, forgottenPass }
 }) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
   const history = useHistory();
+  const dispatch = useDispatch();
   const userInfo = useSelector(({ userInfo }) => userInfo);
   const [disabled, setDisabled] = useState(false);
   const [email, setEmail] = useState('');
@@ -32,7 +33,7 @@ const Auth = ({
   const onChangeEmail = ({ target: { value } }) => setEmail(value);
   const onChangePassword = ({ target: { value } }) => setPassword(value);
   const authUser = ({ data: { accessToken, ...payload } }) => {
-    localStorage.setItem('JWT_TOKEN', accessToken);
+    setUserToLocalStorage({ accessToken, ...payload });
     dispatch({ type: SET_USER_INFO, payload });
     history.push('/');
   };
