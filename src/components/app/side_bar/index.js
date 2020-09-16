@@ -25,6 +25,7 @@ const SideBar = ({ classes: { list, activeLink } }) => {
   return (
     <List classes={{ root: list }}>
       <ListItem
+        exact
         activeClassName={activeLink}
         pathname="/"
         to="/"
@@ -37,6 +38,7 @@ const SideBar = ({ classes: { list, activeLink } }) => {
         <ListItemText primary={t('Main page')} />
       </ListItem>
       <ListItem
+        exact
         activeClassName={activeLink}
         pathname="/partners"
         to="/partners"
@@ -49,6 +51,7 @@ const SideBar = ({ classes: { list, activeLink } }) => {
         <ListItemText primary={t('Partners')} />
       </ListItem>
       <ListItem
+        exact
         activeClassName={activeLink}
         pathname="/users"
         to="/users"
@@ -61,6 +64,7 @@ const SideBar = ({ classes: { list, activeLink } }) => {
         <ListItemText primary={t('Users')} />
       </ListItem>
       <ListItem
+        exact
         activeClassName={activeLink}
         pathname="/orders"
         to="/orders"
@@ -73,6 +77,7 @@ const SideBar = ({ classes: { list, activeLink } }) => {
         <ListItemText primary={t('Orders')} />
       </ListItem>
       <ListItem
+        exact
         activeClassName={activeLink}
         pathname="/products"
         to="/products"
@@ -85,6 +90,7 @@ const SideBar = ({ classes: { list, activeLink } }) => {
         <ListItemText primary={t('Products')} />
       </ListItem>
       <ListItem
+        exact
         activeClassName={activeLink}
         pathname="/configuration"
         to="/configuration"
