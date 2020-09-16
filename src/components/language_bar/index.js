@@ -10,8 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core/styles';
 
 // local files
-import i18next from '../../../i18next/config';
-import { languages } from '../../config';
+import i18next from '../../i18next/config';
+import { languages } from '../../common/config';
 import styles from './styles';
 
 const LanguageBar = ({ classes: { btnIcon } }) => {

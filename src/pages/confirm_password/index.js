@@ -8,7 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 // local components
-import LockIcon from '../../common/components/lock_icon';
+import LockIcon from '../../components/lock_icon';
 
 // local files
 import styles from './styles';

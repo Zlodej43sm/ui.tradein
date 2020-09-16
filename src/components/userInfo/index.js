@@ -18,9 +18,9 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import IconButton from '@material-ui/core/IconButton';
 
 // local files
-import { SET_USER_INFO } from '../../../store/types';
-import { getUserInfo } from '../../utils';
-import { logOut } from '../../../api';
+import { SET_USER_INFO } from '../../store/types';
+import { getUserInfo } from '../../common/utils';
+import { logOut } from '../../api';
 import styles from './styles';
 
 const UserInfo = ({ classes: { paper, infoWrapper, icon } }) => {

@@ -12,7 +12,7 @@ import LinkMui from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
 
 // local component
-import LockIcon from '../../common/components/lock_icon';
+import LockIcon from '../../components/lock_icon';
 
 // local files
 import { SET_USER_INFO, REMOVE_USER_INFO } from '../../store/types';
