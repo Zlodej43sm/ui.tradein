@@ -9,14 +9,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { withStyles } from '@material-ui/core/styles';
-import GroupIcon from '@material-ui/icons/Group';
-import PagesIcon from '@material-ui/icons/Pages';
-import AccessibilityIcon from '@material-ui/icons/Accessibility';
-import LocalMallIcon from '@material-ui/icons/LocalMall';
-import FolderOpenIcon from '@material-ui/icons/FolderOpen';
-import PermDataSettingIcon from '@material-ui/icons/PermDataSetting';
 
 // local files
+import links from './config';
 import styles from './styles';
 
 const SideBar = ({ classes: { list, activeLink } }) => {
@@ -24,84 +19,22 @@ const SideBar = ({ classes: { list, activeLink } }) => {
 
   return (
     <List classes={{ root: list }}>
-      <ListItem
-        exact
-        activeClassName={activeLink}
-        pathname="/"
-        to="/"
-        component={NavLink}
-        button
-      >
-        <ListItemIcon>
-          <PagesIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('Main page')} />
-      </ListItem>
-      <ListItem
-        exact
-        activeClassName={activeLink}
-        pathname="/partners"
-        to="/partners"
-        component={NavLink}
-        button
-      >
-        <ListItemIcon>
-          <AccessibilityIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('Partners')} />
-      </ListItem>
-      <ListItem
-        exact
-        activeClassName={activeLink}
-        pathname="/users"
-        to="/users"
-        component={NavLink}
-        button
-      >
-        <ListItemIcon>
-          <GroupIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('Users')} />
-      </ListItem>
-      <ListItem
-        exact
-        activeClassName={activeLink}
-        pathname="/orders"
-        to="/orders"
-        component={NavLink}
-        button
-      >
-        <ListItemIcon>
-          <FolderOpenIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('Orders')} />
-      </ListItem>
-      <ListItem
-        exact
-        activeClassName={activeLink}
-        pathname="/products"
-        to="/products"
-        component={NavLink}
-        button
-      >
-        <ListItemIcon>
-          <LocalMallIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('Products')} />
-      </ListItem>
-      <ListItem
-        exact
-        activeClassName={activeLink}
-        pathname="/configuration"
-        to="/configuration"
-        component={NavLink}
-        button
-      >
-        <ListItemIcon>
-          <PermDataSettingIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('Configuration')} />
-      </ListItem>
+      {links.map(({ to, icon: Icon, key }) => (
+        <ListItem
+          exact
+          activeClassName={activeLink}
+          pathname={to}
+          to={to}
+          component={NavLink}
+          button
+          key={key}
+        >
+          <ListItemIcon>
+            <Icon />
+          </ListItemIcon>
+          <ListItemText primary={t(key)} />
+        </ListItem>
+      ))}
     </List>
   );
 };
