@@ -30,3 +30,11 @@ export const getUserInfo = () => {
 
   return userInfo;
 };
+
+const createGenerator = () => {
+  let id = 0;
+
+  return () => `uniq_${++id}`;
+};
+
+export const getUniqId = createGenerator();
