@@ -30,8 +30,8 @@ const Auth = ({
   const [disabled, setDisabled] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [invalidUsername, setInvalidUsername] = useState(false);
-  const [invalidPassword, setInvalidPassword] = useState(false);
+  const [invalidUsername, setInvalidUsername] = useState(true);
+  const [invalidPassword, setInvalidPassword] = useState(true);
   const onChangeUsername = ({ target: { value } }, valid) => {
     setInvalidUsername(!valid);
     setUsername(value);
