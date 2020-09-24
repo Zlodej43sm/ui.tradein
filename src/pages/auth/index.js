@@ -77,6 +77,7 @@ const Auth = ({
         errorDelay
       />
       <Input
+        type="password"
         validationType="password"
         onChange={onChangePassword}
         placeholder={t('Password')}
