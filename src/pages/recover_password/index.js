@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 // material components
 import RotateLeftOutlinedIcon from '@material-ui/icons/RotateLeftOutlined';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
+import Input from '../../components/input';
 
 // local components
 import styles from './styles';
@@ -25,10 +25,10 @@ const RecoverPassword = ({
           'Forgot your password? Enter your email to receive a link to reset your password.'
         )}
       </div>
-      <TextField
+      <Input
+        validationType="email"
         placeholder={t('Email')}
-        classes={{ root: textField }}
-        variant="outlined"
+        className={textField}
       />
       <Button
         classes={{ root: signInButton }}
