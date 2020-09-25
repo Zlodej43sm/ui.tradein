@@ -6,13 +6,13 @@ import { useTranslation } from 'react-i18next';
 import isEmpty from 'lodash/isEmpty';
 
 // material components
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import LinkMui from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
 
 // local component
 import LockIcon from '../../components/lock_icon';
+import Input from '../../components/input';
 
 // local files
 import { SET_USER_INFO, REMOVE_USER_INFO } from '../../store/types';
@@ -28,22 +28,32 @@ const Auth = ({
   const dispatch = useDispatch();
   const userInfo = useSelector(({ userInfo }) => userInfo);
   const [disabled, setDisabled] = useState(false);
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const onChangeEmail = ({ target: { value } }) => setEmail(value);
-  const onChangePassword = ({ target: { value } }) => setPassword(value);
+  const [invalidUsername, setInvalidUsername] = useState(true);
+  const [invalidPassword, setInvalidPassword] = useState(true);
+  const onChangeUsername = ({ target: { value } }, valid) => {
+    setInvalidUsername(!valid);
+    setUsername(value);
+  };
+  const onChangePassword = ({ target: { value } }, valid) => {
+    setPassword(value);
+    setInvalidPassword(!valid);
+  };
   const authUser = ({ data: { accessToken, ...payload } }) => {
     setUserToLocalStorage({ accessToken, ...payload });
     dispatch({ type: SET_USER_INFO, payload });
     history.push('/');
   };
   const signIn = () => {
+    if (invalidUsername || invalidPassword) return;
+
     const options = {
       successCb: authUser,
       errorCb: () => setDisabled(false),
       loadingMsg: 'Authorization...',
       successMsg: 'Authorization successful!',
-      body: { username: email, password }
+      body: { username, password }
     };
 
     setDisabled(true);
@@ -58,18 +68,22 @@ const Auth = ({
     <div className={wrapper}>
       <LockIcon />
       <div className={title}>{t('Authorization')}</div>
-      <TextField
-        onChange={onChangeEmail}
-        placeholder={t('Email')}
-        classes={{ root: textField }}
-        variant="outlined"
+      <Input
+        validationType="username"
+        onChange={onChangeUsername}
+        placeholder={t('User name')}
+        className={textField}
+        value={username}
+        errorDelay
       />
-      <TextField
+      <Input
         type="password"
+        validationType="password"
         onChange={onChangePassword}
         placeholder={t('Password')}
-        classes={{ root: textField }}
-        variant="outlined"
+        className={textField}
+        value={password}
+        errorDelay
       />
       <LinkMui
         to="/recover_password"

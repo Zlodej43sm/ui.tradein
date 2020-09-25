@@ -5,7 +5,6 @@ export default (theme) => ({
     ...theme.mixins.alignment.column
   },
   textField: {
-    width: '100%',
     marginBottom: theme.spacing(2)
   },
   title: {
@@ -21,5 +20,5 @@ export default (theme) => ({
     fontSize: 14,
     marginBottom: theme.spacing(3.5),
     cursor: 'pointer'
-  }
+  },
 });

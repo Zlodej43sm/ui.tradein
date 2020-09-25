@@ -3,12 +3,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 // material components
-import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 // local components
 import LockIcon from '../../components/lock_icon';
+import Input from '../../components/input';
 
 // local files
 import styles from './styles';
@@ -21,15 +21,15 @@ const ConfirmPassword = ({
     <div className={wrapper}>
       <LockIcon />
       <div className={title}>{t('Password confirmation')}</div>
-      <TextField
+      <Input
+        validationType="password"
+        className={textField}
         placeholder={t('Password')}
-        classes={{ root: textField }}
-        variant="outlined"
       />
-      <TextField
+      <Input
+        validationType="password"
+        className={textField}
         placeholder={t('Repeat password')}
-        classes={{ root: textField }}
-        variant="outlined"
       />
       <Button
         classes={{ root: signInButton }}
