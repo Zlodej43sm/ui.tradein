@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": ["react","jest","prettier"],
+  "plugins": ["react", "jest", "prettier"],
   "extends": ["plugin:prettier/recommended", "prettier/react"],
   "parserOptions": {
     "sourceType": "module"

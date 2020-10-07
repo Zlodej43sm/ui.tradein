@@ -12,6 +12,9 @@ import ConfirmPassword from '../pages/confirm_password';
 // other components
 import NotFound from '../pages/not_found';
 
+// @TODO: AlecP debugging page should be removed after release
+import Test from '../pages/test';
+
 export const privateRoutes = [
   {
     path: '/',
@@ -34,6 +37,11 @@ export const publicRoutes = [
   {
     path: '/password_confirmation',
     component: (props) => <ConfirmPassword {...props} />,
+    exact: true
+  },
+  {
+    path: '/test',
+    component: (props) => <Test {...props} />,
     exact: true
   }
 ];
