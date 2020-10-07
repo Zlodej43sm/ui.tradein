@@ -1,4 +1,5 @@
 {
+  "arrow-parens": [ 2, "as-needed"],
   "singleQuote": true,
   "trailingComma": "none"
 }
