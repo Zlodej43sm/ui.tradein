@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core';
 
 // local components
-import Logo from '../../logo';
-import UserInfo from '../../userInfo';
-import LanguageBar from '../../language_bar';
+import Logo from 'components/logo';
+import UserInfo from 'components/userInfo';
+import LanguageBar from 'components/language_bar';
 
 // local files
 import styles from './styles';

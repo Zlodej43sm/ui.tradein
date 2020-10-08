@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import RotateLeftOutlinedIcon from '@material-ui/icons/RotateLeftOutlined';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import Input from '../../components/input';
+import Input from 'components/input';
 
 // local components
 import styles from './styles';

@@ -8,7 +8,7 @@ import PublicLayout from './public_layout';
 import InfoBar from '../snackbar';
 
 // local files
-import { publicRoutes, privateRoutes, notFoundRoute } from '../../router';
+import { publicRoutes, privateRoutes, notFoundRoute } from 'router';
 
 const privatePaths = privateRoutes.map(({ path }) => path);
 const publicPaths = publicRoutes.map(({ path }) => path);

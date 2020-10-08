@@ -6,9 +6,14 @@ import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 
 // local component
-import DialogWindow from '../../components/dialog_window';
+import DialogWrapper from 'components/dialog_wrapper';
+import TableWrapper from 'components/table_wrapper';
 
-const Test = () => {
+// local files
+import { getUniqId } from 'common/utils';
+import { getTableData } from './__mock';
+
+const Playbooks = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
@@ -18,7 +23,7 @@ const Test = () => {
     setOpen(false);
   };
   const dialogButtons = [
-    <Button autoFocus color="inherit" onClick={handleClose}>
+    <Button key={getUniqId()} autoFocus color="inherit" onClick={handleClose}>
       {t('save')}
     </Button>
   ];
@@ -28,7 +33,7 @@ const Test = () => {
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open full-screen dialog
       </Button>
-      <DialogWindow
+      <DialogWrapper
         {...{
           title: t('Test'),
           fullScreen: true,
@@ -38,9 +43,10 @@ const Test = () => {
         }}
       >
         <div>test content</div>
-      </DialogWindow>
+      </DialogWrapper>
+      <TableWrapper {...getTableData(7, 30)} />
     </div>
   );
 };
 
-export default Test;
+export default Playbooks;

@@ -2,12 +2,12 @@
 import React from 'react';
 
 // local components
-import PublicWrapper from '../../components/app/public_layout/wrapper';
-import PrivateWrapper from '../../components/app/private_layout/wrapper';
+import PublicWrapper from 'components/app/public_layout/wrapper';
+import PrivateWrapper from 'components/app/private_layout/wrapper';
 import Content from './content';
 
 // local files
-import { getJWT } from '../../common/utils';
+import { getJWT } from 'common/utils';
 
 const NotFound = () => {
   const isAuth = getJWT();

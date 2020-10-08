@@ -1,5 +1,5 @@
 import { fetcher } from '../fetch';
-import { SET_LOADER } from '../../store/types';
+import { SET_LOADER } from 'store/types';
 
 export const request = (url, method, auth) => ({
   body,
