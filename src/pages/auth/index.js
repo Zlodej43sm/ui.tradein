@@ -11,13 +11,13 @@ import LinkMui from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
 
 // local component
-import LockIcon from '../../components/lock_icon';
-import Input from '../../components/input';
+import LockIcon from 'components/lock_icon';
+import Input from 'components/input';
 
 // local files
-import { SET_USER_INFO, REMOVE_USER_INFO } from '../../store/types';
-import { setUserToLocalStorage } from '../../common/utils';
-import { logIn } from '../../api';
+import { SET_USER_INFO, REMOVE_USER_INFO } from 'store/types';
+import { setUserToLocalStorage } from 'common/utils';
+import { logIn } from 'api';
 import styles from './styles';
 
 const Auth = ({

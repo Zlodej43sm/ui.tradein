@@ -13,7 +13,7 @@ import ConfirmPassword from '../pages/confirm_password';
 import NotFound from '../pages/not_found';
 
 // @TODO: AlecP debugging page should be removed after release
-import Test from '../pages/test';
+import Playbooks from '../pages/playbooks';
 
 export const privateRoutes = [
   {
@@ -40,8 +40,8 @@ export const publicRoutes = [
     exact: true
   },
   {
-    path: '/test',
-    component: (props) => <Test {...props} />,
+    path: '/playbooks',
+    component: (props) => <Playbooks {...props} />,
     exact: true
   }
 ];

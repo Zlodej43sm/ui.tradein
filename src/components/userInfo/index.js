@@ -16,9 +16,9 @@ import IconButton from '@material-ui/core/IconButton';
 
 // local files
 import { getItemListsConfig } from './config';
-import { SET_USER_INFO } from '../../store/types';
-import { getUserInfo, getUniqId } from '../../common/utils';
-import { logOut } from '../../api';
+import { SET_USER_INFO } from 'store/types';
+import { getUserInfo, getUniqId } from 'common/utils';
+import { logOut } from 'api';
 import styles from './styles';
 
 const UserInfo = ({ classes: { paper, infoWrapper, icon } }) => {

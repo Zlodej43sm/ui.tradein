@@ -5,8 +5,8 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 // local components
-import Header from '../../header';
-import SideBar from '../../side_bar';
+import Header from 'components/app/header';
+import SideBar from 'components/app/side_bar';
 
 // local files
 import styles from './styles';

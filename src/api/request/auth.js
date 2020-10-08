@@ -1,5 +1,5 @@
 import { request } from './';
-import { getJWT } from '../../common/utils';
+import { getJWT } from 'common/utils';
 
 export const logOut = () => {
   const JWT = getJWT();

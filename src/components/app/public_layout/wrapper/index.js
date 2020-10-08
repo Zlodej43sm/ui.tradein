@@ -5,7 +5,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 // local components
-import Header from '../../header';
+import Header from 'components/app/header';
 
 // local files
 import styles from './styles';

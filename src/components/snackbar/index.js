@@ -8,7 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 
 // local files
-import { UPDATE_LOADER } from '../../store/types';
+import { UPDATE_LOADER } from 'store/types';
 
 const HIDE_DURATION = 5000;
 const types = {

@@ -3,7 +3,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 // local files
-import { getJWT } from '../../../../common/utils';
+import { getJWT } from 'common/utils';
 
 const PublicComponent = ({ component: Component, ...props }) => {
   const JWT = getJWT();
