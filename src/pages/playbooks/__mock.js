@@ -25,19 +25,14 @@ export const getTableData = (colsCount, rowsCount) => {
 
 export const getPageHeaderData = (count = 1) => {
   const defaultButton = {
+    type: "primary",
     title: "New products",
     icon: <AddIcon />,
     onClick: () => console.log('click header btn')
   }
 
-  const buttons = [defaultButton];
-
-  if (count > 1) {
-    buttons.push(defaultButton);
-  }
-
   return {
       title: "Products",
-      buttons
+      buttons: new Array(count).fill(defaultButton)
     }
 }

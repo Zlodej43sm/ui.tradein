@@ -31,7 +31,7 @@ const Playbooks = () => {
 
   return (
     <div>
-      <PageHeader {...getPageHeaderData(2)} />
+      <PageHeader {...getPageHeaderData(3)} />
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open full-screen dialog
       </Button>

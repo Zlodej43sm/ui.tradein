@@ -17,9 +17,15 @@ const propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       onClick: PropTypes.func,
-      icon: PropTypes.node
+      icon: PropTypes.node,
+      type: PropTypes.string
     })
   )
+};
+
+const colors = {
+  primary: true,
+  secondary: true
 };
 
 const PageHeader = ({
@@ -31,11 +37,11 @@ const PageHeader = ({
     <Paper classes={{ root: paper }} elevation={3}>
       <span className={headerTitle}>{title}</span>
       <div>
-        {buttons.map(({ onClick, title, icon }) => (
+        {buttons.map(({ onClick, title, icon, type }) => (
           <Button
             classes={{ root: buttonRoot }}
+            color={colors[type] && type}
             variant="contained"
-            color="primary"
             key={getUniqId()}
             onClick={onClick}
           >
