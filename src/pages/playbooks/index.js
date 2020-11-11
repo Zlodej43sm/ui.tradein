@@ -8,10 +8,11 @@ import Button from '@material-ui/core/Button';
 // local component
 import DialogWrapper from 'components/dialog_wrapper';
 import TableWrapper from 'components/table_wrapper';
+import PageHeader from 'components/page_header';
 
 // local files
 import { getUniqId } from 'common/utils';
-import { getTableData } from './__mock';
+import { getTableData, getPageHeaderData } from './__mock';
 
 const Playbooks = () => {
   const { t } = useTranslation();
@@ -30,6 +31,7 @@ const Playbooks = () => {
 
   return (
     <div>
+      <PageHeader {...getPageHeaderData(3)} />
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open full-screen dialog
       </Button>

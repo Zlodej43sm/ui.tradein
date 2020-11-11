@@ -1,3 +1,8 @@
+import React from 'react';
+
+// material components
+import AddIcon from '@material-ui/icons/Add';
+
 /* eslint-disable */
 export const getTableData = (colsCount, rowsCount) => {
   let row = [];
@@ -17,3 +22,17 @@ export const getTableData = (colsCount, rowsCount) => {
   }
   return tableData;
 };
+
+export const getPageHeaderData = (count = 1) => {
+  const defaultButton = {
+    type: "primary",
+    title: "New products",
+    icon: <AddIcon />,
+    onClick: () => console.log('click header btn')
+  }
+
+  return {
+      title: "Products",
+      buttons: new Array(count).fill(defaultButton)
+    }
+}
