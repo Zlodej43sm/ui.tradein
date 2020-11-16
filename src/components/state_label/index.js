@@ -22,13 +22,13 @@ const defaultProps = {
 
 const StateLabel = ({
   labelClassName,
-  classes: { wrapper, ...colorClasses },
+  classes: { wrapper, ...typeClasses },
   text,
   type
 }) => {
   const currentColor =
     types.find((currentType) => type === currentType) || types[0];
-  const colorClass = colorClasses[currentColor];
+  const colorClass = typeClasses[currentColor];
   const className = classNames(wrapper, colorClass, labelClassName);
 
   return <div className={className}>{text}</div>;
