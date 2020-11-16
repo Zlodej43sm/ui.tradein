@@ -11,7 +11,7 @@ import styles from './styles';
 
 const propTypes = {
   text: PropTypes.string,
-  color: PropTypes.string,
+  type: PropTypes.string,
   labelClassName: PropTypes.string
 };
 
@@ -23,7 +23,7 @@ const StateLabel = ({
   labelClassName,
   classes: { wrapper, newColor, pendingColor, finishedColor, infoColor },
   text,
-  color
+  type
 }) => {
   const colors = {
     new: newColor,
@@ -31,7 +31,7 @@ const StateLabel = ({
     finished: finishedColor,
     info: infoColor
   };
-  const colorClass = colors[color] || colors.info;
+  const colorClass = colors[type] || colors.info;
   const className = classNames(wrapper, colorClass, labelClassName);
 
   return <div className={className}>{text}</div>;

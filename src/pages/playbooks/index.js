@@ -48,14 +48,10 @@ const Playbooks = ({ classes: { wrapper, stateLabel } }) => {
   return (
     <div className={wrapper}>
       <h3>State Label component</h3>
-      <StateLabel labelClassName={stateLabel} color="new" text="New" />
-      <StateLabel labelClassName={stateLabel} color="pending" text="Pending" />
-      <StateLabel
-        labelClassName={stateLabel}
-        color="finished"
-        text="Finished"
-      />
-      <StateLabel color="info" text="Some Info" />
+      <StateLabel labelClassName={stateLabel} type="new" text="New" />
+      <StateLabel labelClassName={stateLabel} type="pending" text="Pending" />
+      <StateLabel labelClassName={stateLabel} type="finished" text="Finished" />
+      <StateLabel type="info" text="Some Info" />
       <h3>Checkbox</h3>
       <CheckboxWrapper label="Control example" />
       <br />
