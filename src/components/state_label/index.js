@@ -7,11 +7,12 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 
 // local files
+import { types } from './utils';
 import styles from './styles';
 
 const propTypes = {
   text: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(types),
   labelClassName: PropTypes.string
 };
 
@@ -21,17 +22,13 @@ const defaultProps = {
 
 const StateLabel = ({
   labelClassName,
-  classes: { wrapper, newColor, pendingColor, finishedColor, infoColor },
+  classes: { wrapper, ...colorClasses },
   text,
   type
 }) => {
-  const colors = {
-    new: newColor,
-    pending: pendingColor,
-    finished: finishedColor,
-    info: infoColor
-  };
-  const colorClass = colors[type] || colors.info;
+  const currentColor =
+    types.find((currentType) => type === currentType) || types[0];
+  const colorClass = colorClasses[currentColor];
   const className = classNames(wrapper, colorClass, labelClassName);
 
   return <div className={className}>{text}</div>;

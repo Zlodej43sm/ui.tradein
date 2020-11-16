@@ -8,5 +8,9 @@ export default (theme) => ({
   },
   stateLabel: {
     marginRight: theme.spacing(1)
+  },
+  infoLink: {
+    marginRight: theme.spacing(2),
+    marginBottom: theme.spacing(2)
   }
 });
