@@ -13,13 +13,14 @@ import PageHeader from 'components/page_header';
 import Input from 'components/input';
 import CheckboxWrapper from 'components/wrappers/checkbox_wrapper';
 import RadioWrapper from 'components/wrappers/radio_wrapper';
+import StateLabel from 'components/state_label';
 
 // local files
 import { getUniqId } from 'common/utils';
 import { getTableData, getPageHeaderData } from './__mock';
 import styles from './styles';
 
-const Playbooks = ({ classes: { wrapper, control } }) => {
+const Playbooks = ({ classes: { wrapper, stateLabel } }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [inputValue, changeInputValue] = useState('');
@@ -46,6 +47,11 @@ const Playbooks = ({ classes: { wrapper, control } }) => {
 
   return (
     <div className={wrapper}>
+      <h3>State Label component</h3>
+      <StateLabel labelClassName={stateLabel} type="new" text="New" />
+      <StateLabel labelClassName={stateLabel} type="pending" text="Pending" />
+      <StateLabel labelClassName={stateLabel} type="finished" text="Finished" />
+      <StateLabel type="info" text="Some Info" />
       <h3>Checkbox</h3>
       <CheckboxWrapper label="Control example" />
       <br />
