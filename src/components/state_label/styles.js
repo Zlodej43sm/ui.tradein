@@ -5,16 +5,16 @@ export default (theme) => ({
     display: 'inline-block',
     color: theme.palette.common.white
   },
-  newColor: {
+  new: {
     background: theme.palette.green[600]
   },
-  pendingColor: {
+  pending: {
     background: theme.palette.grey[500]
   },
-  finishedColor: {
+  finished: {
     background: theme.palette.orange[700]
   },
-  infoColor: {
+  info: {
     background: theme.palette.info.dark
   }
 });

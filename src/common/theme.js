@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { green, orange, grey } from '@material-ui/core/colors';
+import { green, orange, grey, red } from '@material-ui/core/colors';
 
 const column = { display: 'flex', flexDirection: 'column' };
 const alignCenter = { display: 'flex', alignItems: 'center' };
@@ -17,6 +17,11 @@ export const theme = createMuiTheme({
         ...column,
         alignItems: 'center'
       },
+      columnFullCenter: {
+        ...column,
+        alignCenter: 'center',
+        justifyContent: 'center'
+      },
       betweenCenter: {
         display: 'flex',
         justifyContent: 'space-between',
@@ -24,5 +29,5 @@ export const theme = createMuiTheme({
       }
     }
   },
-  palette: { green, orange, grey }
+  palette: { green, orange, grey, red }
 });

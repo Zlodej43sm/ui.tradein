@@ -14,13 +14,15 @@ import Input from 'components/input';
 import CheckboxWrapper from 'components/wrappers/checkbox_wrapper';
 import RadioWrapper from 'components/wrappers/radio_wrapper';
 import StateLabel from 'components/state_label';
+import InfoLink from 'components/info_link';
 
 // local files
 import { getUniqId } from 'common/utils';
 import { getTableData, getPageHeaderData } from './__mock';
+import { colors } from 'components/info_link/utils';
 import styles from './styles';
 
-const Playbooks = ({ classes: { wrapper, stateLabel } }) => {
+const Playbooks = ({ classes: { wrapper, stateLabel, infoLink } }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [inputValue, changeInputValue] = useState('');
@@ -47,11 +49,24 @@ const Playbooks = ({ classes: { wrapper, stateLabel } }) => {
 
   return (
     <div className={wrapper}>
+      <h3>Info links</h3>
+      <div>
+        {colors.map((color, i) => (
+          <InfoLink
+            key={i}
+            linkClassName={infoLink}
+            to="/playbooks"
+            label="Some info"
+            count={2500}
+            type={color}
+          />
+        ))}
+      </div>
       <h3>State Label component</h3>
       <StateLabel labelClassName={stateLabel} type="new" text="New" />
       <StateLabel labelClassName={stateLabel} type="pending" text="Pending" />
       <StateLabel labelClassName={stateLabel} type="finished" text="Finished" />
-      <StateLabel type="info" text="Some Info" />
+      <StateLabel text="Some Info" />
       <h3>Checkbox</h3>
       <CheckboxWrapper label="Control example" />
       <br />
