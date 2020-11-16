@@ -6,7 +6,7 @@ export default (theme) => ({
       marginTop: theme.spacing(5)
     }
   },
-  control: {
-    margin: theme.spacing(10)
+  stateLabel: {
+    marginRight: theme.spacing(1)
   }
 });
