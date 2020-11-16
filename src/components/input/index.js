@@ -15,9 +15,11 @@ import { validator } from './validator';
 import styles from './styles';
 
 const propTypes = {
+  type: PropTypes.string,
   customClasses: PropTypes.object,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
   errorText: PropTypes.string,
   variant: PropTypes.string,
   validationType: PropTypes.string,
@@ -28,10 +30,12 @@ const propTypes = {
 };
 
 const defaultProps = {
+  type: 'text',
   errorText: 'Enter correct value!',
   customClasses: { root: '' },
   variant: 'outlined',
   onChange: () => {},
+  onKeyDown: () => {},
   errorDelay: false,
   delayTime: 300,
   className: '',
@@ -43,6 +47,7 @@ const Input = ({
   onChange,
   value,
   validationType,
+  type,
   error,
   classes: { textField, errorDescription, inputWrapper, alertIcon },
   customClasses: { root, ...otherClasses },
@@ -51,6 +56,7 @@ const Input = ({
   errorText,
   delayTime,
   errorDelay,
+  onKeyDown,
   ...otherProps
 }) => {
   const { t } = useTranslation();
@@ -82,12 +88,25 @@ const Input = ({
 
     onChange(event, valid);
   };
+  const handleKeyDown = (e) => {
+    onKeyDown(e);
+
+    if (type !== 'number') return;
+
+    const regexp = /[0-9]/;
+    const isBackspace = e.key === 'Backspace';
+
+    if (!regexp.test(e.key) && !isBackspace) {
+      e.preventDefault();
+    }
+  };
 
   return (
     <div className={inputClassName}>
       <TextField
         error={isError}
         value={value}
+        onKeyDown={handleKeyDown}
         onChange={handleChange}
         classes={inputClasses}
         variant={variant}
