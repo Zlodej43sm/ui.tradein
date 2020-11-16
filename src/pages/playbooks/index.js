@@ -7,17 +7,19 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
 // local component
-import DialogWrapper from 'components/dialog_wrapper';
-import TableWrapper from 'components/table_wrapper';
+import DialogWrapper from 'components/wrappers/dialog_wrapper';
+import TableWrapper from 'components/wrappers/table_wrapper';
 import PageHeader from 'components/page_header';
 import Input from 'components/input';
+import CheckboxWrapper from 'components/wrappers/checkbox_wrapper';
+import RadioWrapper from 'components/wrappers/radio_wrapper';
 
 // local files
 import { getUniqId } from 'common/utils';
 import { getTableData, getPageHeaderData } from './__mock';
 import styles from './styles';
 
-const Playbooks = ({ classes: { wrapper } }) => {
+const Playbooks = ({ classes: { wrapper, control } }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [inputValue, changeInputValue] = useState('');
@@ -44,6 +46,14 @@ const Playbooks = ({ classes: { wrapper } }) => {
 
   return (
     <div className={wrapper}>
+      <h3>Checkbox</h3>
+      <CheckboxWrapper label="Control example" />
+      <br />
+      <CheckboxWrapper checked />
+      <h3>Radio Button</h3>
+      <RadioWrapper label="Control example" />
+      <br />
+      <RadioWrapper checked />
       <h3>Simple Input</h3>
       <Input value={inputValue} onChange={onChangeInput} />
       <h3>Input type number</h3>

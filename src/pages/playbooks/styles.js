@@ -5,5 +5,8 @@ export default (theme) => ({
     '& > h3': {
       marginTop: theme.spacing(5)
     }
+  },
+  control: {
+    margin: theme.spacing(10)
   }
 });
