@@ -15,6 +15,7 @@ import CheckboxWrapper from 'components/wrappers/checkbox_wrapper';
 import RadioWrapper from 'components/wrappers/radio_wrapper';
 import StateLabel from 'components/state_label';
 import InfoLink from 'components/info_link';
+import ColorPickerInput from 'components/color_picker_input';
 
 // local files
 import { getUniqId } from 'common/utils';
@@ -33,6 +34,9 @@ const Playbooks = ({ classes: { wrapper, stateLabel, infoLink } }) => {
   const handleClose = () => {
     setOpen(false);
   };
+  const onColorChanged = (color) => {
+    console.log(color)
+  }
   const onChangeInput = ({ target: { value } }, valid) => {
     // console.log(valid); // validation state depending on validation type
     changeInputValue(value);
@@ -49,6 +53,8 @@ const Playbooks = ({ classes: { wrapper, stateLabel, infoLink } }) => {
 
   return (
     <div className={wrapper}>
+      <h3>Color Picker</h3>
+      <ColorPickerInput {...{ onColorChanged }} />
       <h3>Info links</h3>
       <div>
         {colors.map((color, i) => (
