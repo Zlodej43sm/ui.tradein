@@ -7,7 +7,7 @@ import { SET_USER_INFO, REMOVE_USER_INFO } from '../types';
 const initialState = {
   email: null,
   id: null,
-  roles: [],
+  role: [],
   username: null
 };
 

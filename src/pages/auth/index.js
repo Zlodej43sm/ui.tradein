@@ -28,15 +28,18 @@ const Auth = ({
   const dispatch = useDispatch();
   const userInfo = useSelector(({ userInfo }) => userInfo);
   const [disabled, setDisabled] = useState(false);
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [invalidUsername, setInvalidUsername] = useState(true);
+  const [invalidEmail, setInvalidEmail] = useState(true);
   const [invalidPassword, setInvalidPassword] = useState(true);
-  const onChangeUsername = ({ target: { value } }, valid) => {
-    setInvalidUsername(!valid);
-    setUsername(value);
+  const [showError, setShowError] = useState(false);
+  const onChangeEmail = ({ target: { value } }, valid) => {
+    setShowError(!valid || invalidPassword);
+    setInvalidEmail(!valid);
+    setEmail(value);
   };
   const onChangePassword = ({ target: { value } }, valid) => {
+    setShowError(!valid || invalidEmail);
     setPassword(value);
     setInvalidPassword(!valid);
   };
@@ -46,14 +49,18 @@ const Auth = ({
     history.push('/');
   };
   const signIn = () => {
-    if (invalidUsername || invalidPassword) return;
+    if (invalidEmail || invalidPassword) {
+      setShowError(true);
+
+      return;
+    }
 
     const options = {
       successCb: authUser,
       errorCb: () => setDisabled(false),
       loadingMsg: 'Authorization...',
       successMsg: 'Authorization successful!',
-      body: { username, password }
+      body: { email, password }
     };
 
     setDisabled(true);
@@ -69,15 +76,17 @@ const Auth = ({
       <LockIcon />
       <div className={title}>{t('Authorization')}</div>
       <Input
-        validationType="username"
-        onChange={onChangeUsername}
-        placeholder={t('User name')}
+        error={showError && invalidEmail}
+        validationType="email"
+        onChange={onChangeEmail}
+        placeholder={t('Email')}
         className={textField}
-        value={username}
+        value={email}
         errorDelay
       />
       <Input
         type="password"
+        error={showError && invalidPassword}
         validationType="password"
         onChange={onChangePassword}
         placeholder={t('Password')}

@@ -7,7 +7,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import WorkIcon from '@material-ui/icons/Work';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-export const getItemListsConfig = ({ username, email, roles }) => {
+export const getItemListsConfig = ({ username, email, role }) => {
   return [
     {
       text: username,
@@ -20,7 +20,7 @@ export const getItemListsConfig = ({ username, email, roles }) => {
       button: false
     },
     {
-      text: roles[0],
+      text: role,
       icon: (props) => <WorkIcon {...props} />,
       button: false
     },
