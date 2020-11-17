@@ -110,6 +110,7 @@ const Input = ({
         onChange={handleChange}
         classes={inputClasses}
         variant={variant}
+        type={type}
         {...otherProps}
       />
       {isError && (
