@@ -31,6 +31,9 @@ export const getUserInfo = () => {
   return userInfo;
 };
 
+export const parseColor = (rgb, hex) =>
+  rgb.a === 1 ? hex : `rgba(${rgb.r},${rgb.g},${rgb.b},${rgb.a})`;
+
 const createGenerator = () => {
   let id = 0;
 
