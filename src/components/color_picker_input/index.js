@@ -28,7 +28,7 @@ const defaultProps = {
 };
 
 const ColorPickerInput = ({
-  classes: { wrapper, picker, colorInputWrapper },
+  classes: { wrapper, picker, colorInputWrapper, inputRootClass, inputClass },
   onColorChanged,
   className,
   defaultColor
@@ -67,7 +67,11 @@ const ColorPickerInput = ({
             <InputAdornment>
               <div style={{ background: parsedColor }} className={wrapper} />
             </InputAdornment>
-          )
+          ),
+          classes: {
+            root: inputRootClass,
+            input: inputClass
+          }
         }}
       />
       {pickerState && (

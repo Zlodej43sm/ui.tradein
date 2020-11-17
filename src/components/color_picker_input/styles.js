@@ -15,5 +15,12 @@ export default (theme) => ({
   colorInputWrapper: {
     width: 400,
     position: 'relative'
+  },
+  inputRootClass: {
+    cursor: 'pointer'
+  },
+  inputClass: {
+    cursor: 'pointer',
+    caretColor: 'transparent'
   }
 });
